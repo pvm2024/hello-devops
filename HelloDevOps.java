@@ -7,7 +7,7 @@ public class HelloDevOps {
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
 
         server.createContext("/", exchange -> {
-            String response = "Hello guys from DevOps pipeline 3.0";
+            String response = "Hello guys from DevOps pipeline 4.0";
             exchange.sendResponseHeaders(200, response.getBytes().length);
             OutputStream os = exchange.getResponseBody();
             os.write(response.getBytes());
