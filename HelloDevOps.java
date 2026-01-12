@@ -7,7 +7,7 @@ public class HelloDevOps {
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
 
         server.createContext("/", exchange -> {
-            String response = "Hello guys from DevOps pipeline 5.0 last before automated";
+            String response = "Hello guys from DevOps pipeline this is done on aws and using webhook";
             exchange.sendResponseHeaders(200, response.getBytes().length);
             OutputStream os = exchange.getResponseBody();
             os.write(response.getBytes());
