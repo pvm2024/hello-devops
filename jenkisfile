@@ -1,35 +1,11 @@
 pipeline {
     agent any
-
     stages {
-
-        stage('Checkout') {
+        stage('Proof') {
             steps {
-                checkout scm
-            }
-        }
-
-        stage('Build Docker Image') {
-            steps {
-                sh '''
-                    docker image prune -f
-                    docker build -t hello-devops:ci .
-                '''
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                sh '''
-                    docker stop hello-devops-app || true
-                    docker rm hello-devops-app || true
-
-                    docker run -d \
-                      --name hello-devops-app \
-                      -p 9090:8080 \
-                      hello-devops:ci
-                '''
+                echo 'PIPELINE STARTED SUCCESSFULLY'
             }
         }
     }
 }
+
