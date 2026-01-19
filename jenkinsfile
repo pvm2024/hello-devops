@@ -17,8 +17,8 @@ pipeline {
         stage('Deploy Container') {
             steps {
                 sh '''
-                docker stop devops-app || true
-                docker rm devops-app || true
+                docker stop web || true
+                docker rm web || true
                 docker run -d -p 9090:8080 --name web  devops-app prashant/devops-app
                 '''
             }
