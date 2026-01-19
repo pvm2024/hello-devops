@@ -19,7 +19,7 @@ pipeline {
                 sh '''
                 docker stop web || true
                 docker rm web || true
-                docker run -d -p 9090:8080 --name web  devops-app prashant/devops-app
+                docker run -d -p 9090:8080 --name web prashant/devops-app
                 '''
             }
         }
