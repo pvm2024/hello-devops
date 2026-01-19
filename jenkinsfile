@@ -1,19 +1,26 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build') {
+        stage('Build Java') {
             steps {
                 sh 'javac App.java'
             }
         }
+
         stage('Docker Build') {
             steps {
                 sh 'docker build -t prashant/devops-app .'
             }
         }
-        stage('Run') {
+
+        stage('Deploy Container') {
             steps {
-                sh 'docker run -d --rm --name devops-app prashant/devops-app'
+                sh '''
+                docker stop devops-app || true
+                docker rm devops-app || true
+                docker run -d --name devops-app prashant/devops-app
+                '''
             }
         }
     }
