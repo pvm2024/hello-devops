@@ -10,8 +10,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build --no-cache -t 
-                    devops-app:latest .'
+                sh 'docker build -t devops-app:latest .'
             }
         }
 
@@ -19,7 +18,8 @@ pipeline {
             steps {
                 sh '''
                 docker rm -f shevchaha_app || true
-                docker-compose -f /infra/docker-compose.yml up -d --build app
+                docker-compose -f /infra/docker-compose.yml up -d --build --no-cache app
+                docker-compose -f /infra/docker-compose.yml up -d app
                 '''
             }
         }
