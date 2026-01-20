@@ -10,16 +10,14 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t prashant/devops-app .'
+                sh 'docker build -t devops-app:latest .'
             }
         }
 
         stage('Deploy Container') {
             steps {
                 sh '''
-                docker stop web || true
-                docker rm web || true
-                docker run -d -p 9090:8080 --name web prashant/devops-app
+                docker compose up -d --build app
                 '''
             }
         }
