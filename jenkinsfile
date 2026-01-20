@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy Container') {
             steps {
                 sh '''
-                docker-compose -f /home/devops-stack/docker-compose.yml  up -d --build app
+                docker-compose -f home/devops/devops-stack/docker-compose.yml  up -d --build app
                 '''
             }
         }
