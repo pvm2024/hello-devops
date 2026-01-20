@@ -47,6 +47,7 @@ public class App {
                         <h1>Welcome to Shevchaha Company</h1>
                         <p>DevOps • Cloud • Automation</p>
                         <p>Powered by Java, Docker & Jenkins</p>
+                        <p>rights-2026</p>
                     </div>
                 </body>
                 </html>
