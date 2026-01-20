@@ -10,7 +10,8 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh 'docker build -t devops-app:latest .'
+                sh 'docker build --no-cache -t 
+                    devops-app:latest .'
             }
         }
 
